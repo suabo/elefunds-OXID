@@ -42,7 +42,7 @@ class lfndsdonation_list extends oxAdminList {
    * every time user refresh this view, also check for paid orders   
    */   
   public function render() {
-    if($this->getConfig()->getConfigParam('sLfndsObservrDonationList')) {
+    if($this->getConfig()->getConfigParam('sLfndsObserveDonationList')) {
       lfndsfacade::getInstance()->observeDonationState();
     }          
     return parent::render();  

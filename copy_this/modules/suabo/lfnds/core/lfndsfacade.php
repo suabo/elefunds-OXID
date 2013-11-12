@@ -98,6 +98,57 @@ class lfndsfacade {
     return $this->_oLfndsApi;
   }
   
+  public function sendDonation($oOrder) {
+    $oViewConf = oxNew('oxviewconfig');
+    $sModulePath = $oViewConf->getModulePath('suabolfnds');
+    require_once($sModulePath.'core/Lfnds/Model/Donation.php');
+    require_once($sModulePath.'core/Lfnds/Exception/ElefundsCommunicationException.php');
+    $oLfndsHelper = lfndshelper::getInstance()->getHelper();
+    if($oLfndsHelper->isActiveAndValid()) {          
+      $oLfndsApi = $this->getFacade('success');
+      $originalTotalInCent = str_replace(array(".", ","), "", round($oOrder->oxorder__oxtotalordersum->value, 2));
+      $newTotal = $originalTotalInCent + $oLfndsHelper->getRoundUp();
+      $orderID = $oOrder->getId();
+      $donation = $oLfndsApi->createDonation()
+          ->setForeignId($orderID)
+          ->setAmount($oLfndsHelper->getRoundUp())
+          ->setSuggestedAmount($oLfndsHelper->getSuggestedRoundUp())
+          ->setGrandTotal($newTotal)
+          ->setReceiverIds($oLfndsHelper->getReceiverIds())
+          ->setAvailableReceiverIds($oLfndsHelper->getAvailableReceiverIds())
+          ->setTime(new DateTime());
+                
+      $oCountry = oxNew('oxcountry');
+      $oCountry->load($oOrder->oxorder__oxbillcountryid->value);
+      if ($oLfndsHelper->isDonationReceiptRequested()) {
+          $donation->setDonator(
+              $oOrder->oxorder__oxbillemail->value,         # the customers email address
+              $oOrder->oxorder__oxbillfname->value,     # the customers first name
+              $oOrder->oxorder__oxbilllname->value,      # the customers last name
+              $oOrder->oxorder__oxbillstreet->value." ".$oOrder->oxorder__oxbillstreetnr->value, # the customers street address (with number)
+              $oOrder->oxorder__oxbillzip->value,       # the customers zip code (as string or integer)
+              $oOrder->oxorder__oxbillcity->value,          # the customers city
+              strtolower($oCountry->oxcountry__oxisoalpha2->value)    # the customers country code (e.g. 'de')
+          );
+      }
+            
+      try { // Let's add the donation to the API
+          $oLfndsApi->addDonation($donation);
+          $state = 'pending';
+      } catch (Lfnds\Exception\ElefundsCommunicationException $exception) {          
+          $state = 'scheduled'; // Something went wrong, we try again later
+      }
+      
+      //log donation to db    
+      $oLfnds = oxNew('suabolfnds');
+      $oLfnds->suabolfnds__oxorderid->value = $orderID;
+      $oLfnds->suabolfnds__lfndsdonation->value = base64_encode(serialize($donation));
+      $oLfnds->suabolfnds__lfndsstate->value = $state;
+      $oLfnds->suabolfnds__lfndstime->value = date("Y-m-d H:i:s");
+      $oLfnds->save();
+    }  
+  }
+  
   public function observeDonationState() {
     $oViewConf = oxNew('oxviewconfig');
     $sModulePath = $oViewConf->getModulePath('suabolfnds');

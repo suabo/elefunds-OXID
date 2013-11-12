@@ -51,7 +51,8 @@ $aLang = array(
     'SHOP_MODULE_sLfndsTotalSelector'         => 'jQuery-Selector für den Gesamtbetrag',    
     'SHOP_MODULE_sLfndsTheme_light'           => 'light',
     'SHOP_MODULE_sLfndsTheme_dark'            => 'dark',    
-    'SHOP_MODULE_sLfndsObservrDonationList'   => 'Spenden Übersicht',
+    'SHOP_MODULE_sLfndsObserveNewDonation'    => 'Neue Spende',
+    'SHOP_MODULE_sLfndsObserveDonationList'   => 'Spenden Übersicht',
     'SHOP_MODULE_sLfndsObserveOrderList'      => 'Bestellübersicht',
     'SHOP_MODULE_sLfndsObserveHome'           => 'Home(Backend Startseite)',    
     
