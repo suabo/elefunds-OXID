@@ -3,7 +3,7 @@
 The elefunds OXID module.
 
 
-## Installationsanleitung für Elefunts OXID Modul V.4.8.0
+## Installationsanleitung für Elefunts OXID Modul V.4.7.0 - 4.8.x
 
 1. Kopieren Sie alle Dateien aus copy_this in ihr Shop root Verzeichnis.
 2. Aktivieren Sie das Modul im Backend unter Erweiterungen > Module > Elefunds.
