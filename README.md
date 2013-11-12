@@ -12,10 +12,18 @@ The elefunds OXID module.
 
 ## Aktualisierung des Spendenstatus:
 
-Wenn Sie das OXID Backend verwenden, werden die Spenden von der Einstellung im Modul 
-abhängig abgeglichen, wenn Sie die Startseite des Backend, die Bestellübersicht und/oder
-die Spendenübersicht aufrufen. Hierbei werden Spenden, deren Bestellung als bezahlt oder 
-storniert markiert sind an elefunds gemeldet. In diesem Fall muss kein Cronjob eingerichtet werden.
+Spenden werden von der Einstellung im Modul abhängig automatisch abgeglichen, wenn Sie:
+- die Startseite des Backend aufrufen `false`
+- die Bestellübersicht aufrufen `true`
+- die Spendenübersicht aufrufen `false`
+- neue Spenden erhalten `true`
+
+`defaults`
+
+Hierbei werden Spenden, deren Bestellung als bezahlt oder storniert markiert 
+sind an elefunds gemeldet. In diesem Fall muss kein Cronjob eingerichtet werden.
+Sollten Sie aus bestimmten Gründen keine der Optionen wählen, so müssen Sie
+einen Cronjob einrichten.
 
 ## Spendenstatus per Cronjob aktualisieren:
 
