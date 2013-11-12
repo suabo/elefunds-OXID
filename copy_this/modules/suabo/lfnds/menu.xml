@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxorders">
+            <SUBMENU id="mxlfndsdonation" cl="lfndsdonation" list="lfndsdonation_list">
+              <TAB id="tbclshop_lfndsdonation" cl="lfndsdonation_main" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>
