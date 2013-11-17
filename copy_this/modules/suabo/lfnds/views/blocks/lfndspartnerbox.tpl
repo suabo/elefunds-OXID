@@ -1,4 +1,4 @@
 [{$smarty.block.parent}]
 <div id="lfndsParnterBox">
-  <img src="[{$oViewConf->getModuleUrl('suabolfnds','elefunds_Banner_sie_250x122px_01.png')}]" alt="Elefunds Logo">
+  <img src="[{$oViewConf->getModuleUrl('suabolfnds','out/src/img/elefunds_Button_rund_weiß_250px.png')}]" alt="Elefunds Logo" width="148" height="148">
 </div>
