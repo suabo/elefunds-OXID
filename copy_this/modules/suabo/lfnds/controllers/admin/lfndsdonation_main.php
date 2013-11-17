@@ -40,8 +40,19 @@ class lfndsdonation_main extends oxAdminDetails {
     if($oLfndsDonation->load($sOxId)) {
       $this->_aViewData['edit'] = $oLfndsDonation;
       $this->_aViewData['aDonation'] = unserialize(base64_decode($oLfndsDonation->suabolfnds__lfndsdonation->value))->toArray();
+    } else {
+      $this->_aViewData['aTotal'] = $this->_getDonationTotal();
     }
     return parent::render();
+  }
+  
+  protected function _getDonationTotal() {
+    $aTotal = array();
+    $aTotal['totalDonations'] = oxDb::getDb()->getOne("SELECT count(oxid) FROM suabolfnds;");
+    $aTotal['totalCompleted'] = oxDb::getDb()->getOne("SELECT count(oxid) FROM suabolfnds WHERE lfndsstate='completed';");
+    $aTotal['totalPending']   = oxDb::getDb()->getOne("SELECT count(oxid) FROM suabolfnds WHERE lfndsstate='pending';");
+    $aTotal['totalCancelled'] = oxDb::getDb()->getOne("SELECT count(oxid) FROM suabolfnds WHERE lfndsstate='cancelled';"); 
+    return $aTotal;
   }
 }
 ?>

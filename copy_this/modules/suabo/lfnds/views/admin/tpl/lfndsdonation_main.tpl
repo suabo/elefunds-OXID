@@ -8,6 +8,7 @@
  
 <table cellspacing="0" cellpadding="0" border="0">
 [{block name="admin_lfnds_main"}]  
+    [{if $edit}]
     <tr>
         <td class="edittext">[{ oxmultilang ident="MODULE_SUABOLFNDS_STATE_TITLE" }]:</td>
         <td class="edittext">[{$edit->suabolfnds__lfndsstate->value}]</td>
@@ -29,6 +30,27 @@
         </tr>
       [{/if}]
     [{/foreach}]
+    [{else if $aTotal}]
+    <tr>
+        <td class="edittext" colspan="2">[{ oxmultilang ident="MODULE_SUABOLFNDS_TOTAL_DONATIONS" }]:<br><br></td>
+    </tr>
+    <tr>
+        <td class="edittext">[{ oxmultilang ident="MODULE_SUABOLFNDS_TOTAL_DONATIONS_TOTAL" }]:</td>
+        <td class="edittext">[{$aTotal.totalDonations}]</td>
+    </tr>
+    <tr>
+        <td class="edittext">[{ oxmultilang ident="MODULE_SUABOLFNDS_TOTAL_DONATIONS_COMPLETED" }]:</td>
+        <td class="edittext">[{$aTotal.totalCompleted}]</td>
+    </tr>
+    <tr>
+        <td class="edittext">[{ oxmultilang ident="MODULE_SUABOLFNDS_TOTAL_DONATIONS_PENDING" }]:</td>
+        <td class="edittext">[{$aTotal.totalPending}]</td>
+    </tr>
+    <tr>
+        <td class="edittext">[{ oxmultilang ident="MODULE_SUABOLFNDS_TOTAL_DONATIONS_CANCELLED" }]:</td>
+        <td class="edittext">[{$aTotal.totalCancelled}]</td>
+    </tr>        
+    [{/if}]
 </table>
 [{/block}]
 [{include file="bottomitem.tpl"}]

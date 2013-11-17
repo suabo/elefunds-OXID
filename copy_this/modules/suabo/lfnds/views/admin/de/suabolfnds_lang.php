@@ -56,11 +56,11 @@ $aLang = array(
     'SHOP_MODULE_sLfndsObserveOrderList'      => 'Bestellübersicht',
     'SHOP_MODULE_sLfndsObserveHome'           => 'Home(Backend Startseite)',    
     
-    'mxlfndsdonation'                         => 'Elefunds Spenden',
+    'mxlfndsdonation'                         => 'elefunds Spenden',
     'tbclshop_lfndsdonation'                  => 'Spendendetails',
-    'MODULE_SUABOLFNDS_TITLE'                 => 'Elefunds',
+    'MODULE_SUABOLFNDS_TITLE'                 => 'elefunds',
     'MODULE_SUABOLFNDS_TITLE_SUBITEM'         => 'Spenden',
-    'MODULE_SUABOLFNDS_STATE_TITLE'           => 'Elefunds Status',
+    'MODULE_SUABOLFNDS_STATE_TITLE'           => 'elefunds Status',
     'MODULE_SUABOLFNDS_STATE'                 => 'Alle',
     'MODULE_SUABOLFNDS_STATE_PENDING'         => 'Ausstehend',
     'MODULE_SUABOLFNDS_STATE_CANCELLED'       => 'Storniert',
@@ -76,4 +76,10 @@ $aLang = array(
     'MODULE_SUABOLFNDS_donator'               => 'Personendaten',
     'MODULE_SUABOLFNDS_grandTotal'            => 'Gesamtbetrag',
     'MODULE_SUABOLFNDS_donationAmountSuggested' => 'Vorgeschlagener Spendenbetrag',
+    
+    'MODULE_SUABOLFNDS_TOTAL_DONATIONS'           => 'elefunds Spenden Übersicht',
+    'MODULE_SUABOLFNDS_TOTAL_DONATIONS_TOTAL'     => 'Insgesamt',
+    'MODULE_SUABOLFNDS_TOTAL_DONATIONS_COMPLETED' => 'Bezahlt',
+    'MODULE_SUABOLFNDS_TOTAL_DONATIONS_PENDING'   => 'Bezahlung ausstehend',
+    'MODULE_SUABOLFNDS_TOTAL_DONATIONS_CANCELLED' => 'Storniert',
 );
