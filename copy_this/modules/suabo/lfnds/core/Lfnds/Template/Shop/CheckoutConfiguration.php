@@ -62,7 +62,7 @@ class CheckoutConfiguration extends ShopConfiguration {
     public function init() {
 
         parent::init();
-        $this->view->setRenderFile('Checkout.phtml');
+        $this->view->setRenderFile('OXIDCheckout.phtml');
 
         $this->view->assignMultiple(
             array(
@@ -78,7 +78,30 @@ class CheckoutConfiguration extends ShopConfiguration {
                 'currencyDelimiter'     => ','
             )
         );
-        
+
+        // Available theme and color choices
+        $this->themes = array('light', 'dark');
+
+        // Chose your theme and color
+        $theme = $this->themes[0];
+        $color = '#00efa2';
+
+        $this->view->assign('skin',
+            array(
+                'theme' =>  $theme,
+                'color' =>  $color,
+                // Receiver logo orientation
+                'orientation' => 'horizontal'
+            )
+        );
+
+        // To implement this template in a shop, you have to add the following
+        // (preferably in your own extending class, or via $facade->getConfiguration->getView()->assign()):
+        // $this->view->assign('formSelector', '#css .selector .of .form');
+        // $this->view->assign('totalSelector', '#css .selector .of .total');
+        // $this->view->assign('rowLabel', '#css .selector .of .row .label');
+        // $this->view->assign('rowValue', '#css .selector .of .row .value');
+
     }
 
 

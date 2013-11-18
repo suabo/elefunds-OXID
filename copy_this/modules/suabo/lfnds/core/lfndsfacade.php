@@ -59,21 +59,17 @@ class lfndsfacade {
     require_once($sModulePath.'core/Lfnds/Template/Shop/CheckoutConfiguration.php');
     require_once($sModulePath.'core/Lfnds/Template/Shop/CheckoutSuccessConfiguration.php');    
     require_once($sModulePath.'core/Lfnds/Facade.php');
-    if($sMode == 'success') {
+    if($sMode == 'success' || $sMode == 'social-share') {
       $oCheckoutConfig = new CheckoutSuccessConfiguration();
       $this->_oLfndsApi = new Facade($oCheckoutConfig);
       $this->_oLfndsApi->getConfiguration()
           ->setClientId($sClientId)
           ->setApiKey($sApiKey);      
-    } elseif($sMode == 'social-share' && $sForeignId != '') {      
-      $oCheckoutConfig = new CheckoutSuccessConfiguration();
-      $this->_oLfndsApi = new Facade($oCheckoutConfig);      
-      $this->_oLfndsApi->getConfiguration()
-          ->setClientId($sClientId)
-          ->setApiKey($sApiKey)
-          ->setCountrycode($sCountryCode)
-          ->getView()
-          ->assign('foreignId', $sForeignId);                
+      if($sMode == 'social-share' && $sForeignId != '') {      
+        $this->_oLfndsApi->setCountrycode($sCountryCode)
+            ->getView()
+            ->assign('foreignId', $sForeignId);
+      }                
     } else {
       $oBasket = oxSession::getInstance()->getBasket();
       $oCheckoutConfig = new CheckoutConfiguration();
@@ -165,9 +161,10 @@ class lfndsfacade {
       $sOxId = $oLfndDonation->getId();        
       switch ($oLfndDonation->suabolfnds__lfndsstate->value) {            
         case 'pending':
+          $sObserveTrigger = oxConfig::getInstance()->getConfigParam('sLfndsObserveTrigger');
           $sOrderId = $oLfndDonation->suabolfnds__oxorderid->value;
-          $sPaid = oxDb::getDb()->getOne("SELECT oxpaid FROM oxorder WHERE oxid='$sOrderId';");
-          if(isset($sPaid) && !empty($sPaid) && $sPaid != '0000-00-00 00:00:00') { $completedDonations[$sOxId] = $oDonation; }
+          $sOTV = oxDb::getDb()->getOne("SELECT $sObserveTrigger FROM oxorder WHERE oxid='$sOrderId';");
+          if(isset($sOTV) && !empty($sOTV) && $sOTV != '0000-00-00 00:00:00') { $completedDonations[$sOxId] = $oDonation; }
         break;
         case 'scheduled':
           $pendingDonations[$sOxId] = $oDonation;

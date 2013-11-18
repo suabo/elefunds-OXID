@@ -1,6 +1,6 @@
 <?php
 /*
- * Elefunds OXID Shop Module
+ * elefunds OXID Shop Module
  *
  * The MIT License (MIT)
  * 
@@ -30,9 +30,20 @@
 $sMetadataVersion = '1.1';
 $aModule = array(
     'id'           => 'suabolfnds',
-    'title'        => 'Elefunds',
+    'title'        => 'elefunds',
     'description'  => array(
-        'de' => 'Runde deinen zu zahlenden Betrag auf und bestimme somit die Höhe deiner Spende. Verteile diese Differenz an eine oder mehrere gemeinnützige Organisationen deiner Wahl. Begeistere deine Freunde auf Facebook & Twitter und werde so selbst zum Fundraiser.<br><br> OXID Modul entwickelt von:<br><a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br><a href="http://www.suabo.de">www.suabo.de</a>',
+        'de' => '
+Runde deinen zu zahlenden Betrag auf und bestimme somit die Höhe deiner Spende. 
+Verteile diese Differenz an eine oder mehrere gemeinnützige Organisationen deiner Wahl. 
+Begeistere deine Freunde auf Facebook & Twitter und werde so selbst zum Fundraiser.<br><br> 
+<strong>Hinweis für eigene Themes:</strong><br>
+Die Voreinstellungen unter Angepasste Integration in den Einstellungen ist für das Standard OXID Theme azure.
+Wenn Sie ein anderes Theme nutzen müssen Sie diese Einstellung anpassen. Weitere Informationen hierzu finden Sie
+<a href="https://github.com/elefunds/elefunds-SDK/blob/master/Documentation/Shops/JavaScriptFrontend.md">hier</a>.
+<br><br>
+OXID Modul entwickelt von:<br>
+<a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br>
+<a href="http://www.suabo.de">www.suabo.de</a>',
         'en' => '<br><br> OXID Modul development by:<br><a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br><a href="http://www.suabo.de">www.suabo.de</a>',
     ),
     'thumbnail'    => 'out/src/img/elefunds_Logo.png',
@@ -70,8 +81,8 @@ $aModule = array(
         array('template' => 'page/checkout/thankyou.tpl',   'block' => 'checkout_thankyou_info',  'file' => '/views/blocks/lfndscheckoutthankyouinfo.tpl'),        
     ),
    'settings' => array(
-        array('group' => 'lfndsmain',   'name' => 'sLfndsClientID',       'type' => 'str',    'value' => ''),
-        array('group' => 'lfndsmain',   'name' => 'sLfndsApiKey',         'type' => 'str',    'value' => ''),        
+        array('group' => 'lfndsmain',   'name' => 'sLfndsClientID',       'type' => 'str',    'value' => '1001'),
+        array('group' => 'lfndsmain',   'name' => 'sLfndsApiKey',         'type' => 'str',    'value' => 'ay3456789gg234561234'),        
         array('group' => 'lfndstheme',  'name' => 'sLfndsTheme',          'type' => 'select', 'value' => 'light', 'constraints' => 'light|dark' ),
         array('group' => 'lfndstheme',  'name' => 'sLfndsThemeColor',     'type' => 'str',    'value' => '#FFFFFF'),
         array('group' => 'lfndscustom', 'name' => 'sLfndsJQueryInclude',  'type' => 'bool',   'value' => 'false'),        
@@ -79,11 +90,12 @@ $aModule = array(
         array('group' => 'lfndscustom', 'name' => 'sLfndsRowLabel',       'type' => 'str',    'value' => 'th'),
         array('group' => 'lfndscustom', 'name' => 'sLfndsRowValue',       'type' => 'str',    'value' => 'td'),
         array('group' => 'lfndscustom', 'name' => 'sLfndsFooterSelector', 'type' => 'str',    'value' => '#orderConfirmAgbBottom'),
-        array('group' => 'lfndscustom', 'name' => 'sLfndsTotalSelector',  'type' => 'str',    'value' => '#basketGrandTotal'),
+        array('group' => 'lfndscustom', 'name' => 'sLfndsTotalSelector',  'type' => 'str',    'value' => '#basketGrandTotal'),        
         array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveNewDonation',   'type' => 'bool', 'value' => 'true'),
         array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveDonationList',  'type' => 'bool', 'value' => 'false'),
         array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveOrderList',     'type' => 'bool', 'value' => 'true'),
-        array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveHome',          'type' => 'bool', 'value' => 'false'),        
+        array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveHome',          'type' => 'bool', 'value' => 'false'),
+        array('group' => 'lfndsobserver', 'name' => 'sLfndsObserveTrigger',       'type' => 'select', 'value' => 'oxpaid', 'constraints' => 'oxpaid|oxsenddate' ),
     ),
     'events'       => array(
         'onActivate'   => 'lfndssetup::onActivate',
