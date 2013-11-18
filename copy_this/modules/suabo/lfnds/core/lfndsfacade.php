@@ -66,7 +66,8 @@ class lfndsfacade {
           ->setClientId($sClientId)
           ->setApiKey($sApiKey);      
       if($sMode == 'social-share' && $sForeignId != '') {      
-        $this->_oLfndsApi->setCountrycode($sCountryCode)
+        $this->_oLfndsApi->getConfiguration()
+            ->setCountrycode($sCountryCode)
             ->getView()
             ->assign('foreignId', $sForeignId);
       }                

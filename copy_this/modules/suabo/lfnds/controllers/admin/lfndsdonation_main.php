@@ -46,6 +46,18 @@ class lfndsdonation_main extends oxAdminDetails {
     return parent::render();
   }
   
+  public function setPaid() {
+    $sOxID = oxConfig::getParameter('oxid');
+    oxDb::getDb()->execute("UPDATE suabolfnds SET lfndsstate='scheduled_for_completion' WHERE oxid='$sOxID'");
+    lfndsfacade::getInstance()->observeDonationState();
+  }
+  
+  public function storno() {
+    $sOxID = oxConfig::getParameter('oxid');
+    oxDb::getDb()->execute("UPDATE suabolfnds SET lfndsstate='scheduled_for_cancellation' WHERE oxid='$sOxID'");
+    lfndsfacade::getInstance()->observeDonationState();
+  }  
+  
   protected function _getDonationTotal() {
     $aTotal = array();
     $aTotal['totalDonations'] = oxDb::getDb()->getOne("SELECT count(oxid) FROM suabolfnds;");

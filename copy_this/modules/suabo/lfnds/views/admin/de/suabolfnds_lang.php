@@ -85,4 +85,8 @@ $aLang = array(
     'MODULE_SUABOLFNDS_TOTAL_DONATIONS_COMPLETED' => 'Bezahlt',
     'MODULE_SUABOLFNDS_TOTAL_DONATIONS_PENDING'   => 'Bezahlung ausstehend',
     'MODULE_SUABOLFNDS_TOTAL_DONATIONS_CANCELLED' => 'Storniert',
+    
+    'MODULE_SUABOLFNDS_BUTTON_PAID'         => 'Spende als bezahlt markieren',
+    'MODULE_SUABOLFNDS_BUTTON_STORNO'       => 'Spende stornieren',
+    'MODULE_SUABOLFNDS_BUTTON_INFO'         => 'Wenn Sie die Spende über diese Ansicht stornieren, muss der Spendenartikel in der Bestellung manuell entfernt werden.',
 );
