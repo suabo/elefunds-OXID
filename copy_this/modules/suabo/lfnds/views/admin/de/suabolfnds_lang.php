@@ -89,4 +89,6 @@ $aLang = array(
     'MODULE_SUABOLFNDS_BUTTON_PAID'         => 'Spende als bezahlt markieren',
     'MODULE_SUABOLFNDS_BUTTON_STORNO'       => 'Spende stornieren',
     'MODULE_SUABOLFNDS_BUTTON_INFO'         => 'Wenn Sie die Spende über diese Ansicht stornieren, muss der Spendenartikel in der Bestellung manuell entfernt werden.',
+    'MODULE_SUABOLFNDS_INVOICE_INFO'        => 'Die Spende wird vereinnahmt für die elefunds Stiftung gUG und zu 100% an die ausgewählten Organisationen',
+    'MODULE_SUABOLFNDS_INVOICE_INFO2'       => 'weitergeleitet. Der Kaufbeleg ersetzt keine Spendenbescheinigung im Sinne des Steuerrechts.',
 );
