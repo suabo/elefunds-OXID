@@ -78,7 +78,8 @@ OXID Modul entwickelt von:<br>
         array('template' => 'page/checkout/order.tpl',      'block' => 'shippingAndPayment',      'file' => '/views/blocks/lfndsdonation.tpl'),        
         array('template' => 'layout/base.tpl',              'block' => 'base_style',              'file' => '/views/blocks/lfndsbasecss.tpl'),
         array('template' => 'layout/base.tpl',              'block' => 'base_js',                 'file' => '/views/blocks/lfndsbasejs.tpl'),
-        array('template' => 'page/checkout/thankyou.tpl',   'block' => 'checkout_thankyou_info',  'file' => '/views/blocks/lfndscheckoutthankyouinfo.tpl'),        
+        array('template' => 'page/checkout/thankyou.tpl',   'block' => 'checkout_thankyou_info',  'file' => '/views/blocks/lfndscheckoutthankyouinfo.tpl'),
+        array('template' => 'email/html/order_cust.tpl',    'block' => 'email_html_order_cust_paymentinfo', 'file' => '/views/blocks/lfndsdisclaimer.tpl'),        
     ),
    'settings' => array(
         array('group' => 'lfndsmain',   'name' => 'sLfndsClientID',       'type' => 'str',    'value' => '1001'),

@@ -33,6 +33,7 @@ $sLangName  = "Deutsch";
 // RESOURCE IDENTIFIER = STRING
 // -------------------------------
 $aLang = array(
-    'charset'                                 => "UTF-8",
-    'MODULE_SUABOLFNDS_PAYMENT_TITLE'         => "Spende",
+    'charset'                          => "UTF-8",
+    'MODULE_SUABOLFNDS_PAYMENT_TITLE'  => "Spende",
+    'MODULE_SUABOLFNDS_INVOICE_INFO'   => 'Die Spende wird vereinnahmt für die elefunds Stiftung gUG und zu 100% an die ausgewählten Organisationen weitergeleitet. Der Kaufbeleg ersetzt keine Spendenbescheinigung im Sinne des Steuerrechts.',            
 );
