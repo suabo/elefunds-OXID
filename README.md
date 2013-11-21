@@ -7,7 +7,7 @@ The elefunds OXID module.
 
 1. Kopieren Sie alle Dateien aus copy_this in ihr Shop root Verzeichnis.
 2. Aktivieren Sie das Modul im Backend unter Erweiterungen > Module > Elefunds.
-3. elefunds API Zugang eintragen und Moduleinstellungen vornehmen.
+3. Moduleinstellungen vornehmen und elefunds API Zugang eintragen
 4. Löschen Sie ihren Shop-Cache (`/tmp/`).
 
 ## Aktualisierung des Spendenstatus:
@@ -41,3 +41,4 @@ Um alle 5 Minuten einen abgleich durchzuführen, fügen Sie folgende Zeile zur D
 ### elefunds Widget erscheint nicht:
 bei ältern Shopversionen ist es notwendig eine neuere Version von JQuery zu laden.
 Aktivieren Sie diese Einstellung im Modul, sollte das Widget nicht angezeigt werden.
+Das Javascript Widget benötigt mindestens jQuery V1.7
