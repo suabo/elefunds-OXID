@@ -46,7 +46,7 @@ class lfndsfacade {
     $oViewConf = oxNew('oxviewconfig');
     $sModulePath = $oViewConf->getModulePath('suabolfnds');    
     $oUser = oxSession::getInstance()->getUser();
-    ($oUser->getLanguage() == 0 || $oUser->getLanguage() == -1) ? $sCountryCode = 'de' : $sCountryCode = 'en';  
+    (!$oUser || $oUser->getLanguage() == 0 || $oUser->getLanguage() == -1) ? $sCountryCode = 'de' : $sCountryCode = 'en';
     $sClientId = $myconfig->getConfigParam("sLfndsClientID");
     $sApiKey = $myconfig->getConfigParam("sLfndsApiKey");
     $sTheme = $myconfig->getConfigParam("sLfndsTheme");
