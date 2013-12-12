@@ -49,7 +49,7 @@ OXID Modul entwickelt von:<br>
         'en' => '<br><br> OXID Modul development by:<br><a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br><a href="http://www.suabo.de">www.suabo.de</a>',
     ),
     'thumbnail'    => 'out/src/img/elefunds_Logo.png',
-    'version'      => '1.0.0',
+    'version'      => '1.0.1',
     'author'       => 'Marcel Grolms - suabo',
     'url'          => 'http://www.elefunds.de',
     'email'        => 'hello@elefunds.de',
