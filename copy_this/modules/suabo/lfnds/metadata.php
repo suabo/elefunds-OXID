@@ -36,6 +36,8 @@ $aModule = array(
 Runde deinen zu zahlenden Betrag auf und bestimme somit die Höhe deiner Spende. 
 Verteile diese Differenz an eine oder mehrere gemeinnützige Organisationen deiner Wahl. 
 Begeistere deine Freunde auf Facebook & Twitter und werde so selbst zum Fundraiser.<br><br> 
+<a href="https://elefunds.de/produkt/anfrage/">Zugangsdaten bei elefunds anfordern</a>
+<br><br>
 <strong>Hinweis für eigene Themes:</strong><br>
 Die Voreinstellungen unter Angepasste Integration in den Einstellungen ist für das Standard OXID Theme azure.
 Wenn Sie ein anderes Theme nutzen müssen Sie diese Einstellung anpassen. Weitere Informationen hierzu finden Sie
