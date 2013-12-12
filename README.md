@@ -22,7 +22,7 @@ Spenden werden von der Einstellung im Modul abhängig automatisch abgeglichen, w
 Hierbei werden Spenden, deren Bestellung als bezahlt oder storniert markiert 
 sind an elefunds gemeldet. In diesem Fall muss kein Cronjob eingerichtet werden.
 Sollten Sie aus bestimmten Gründen keine der Optionen wählen, so müssen Sie
-einen [Cronjob einrichten](cron/).
+einen [Cronjob einrichten](cron/CRON.md).
 
 ## Bekannte Probleme
 ### elefunds Widget erscheint nicht:
