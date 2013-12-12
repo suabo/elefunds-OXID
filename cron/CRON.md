@@ -11,3 +11,5 @@ Im Script selbst muss die Domain eingetragen und ein Zugang für das OXID Backen
 Um alle 5 Minuten einen abgleich durchzuführen, fügen Sie folgende Zeile zur Datei /etc/crontab hinzu: 
 
     */5 *   * * *   root  php5 /root/cron/lfndsdonationobserver.php
+
+[Zurück zur Anleitung](/)
