@@ -46,7 +46,23 @@ Wenn Sie ein anderes Theme nutzen müssen Sie diese Einstellung anpassen. Weiter
 OXID Modul entwickelt von:<br>
 <a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br>
 <a href="http://www.suabo.de">www.suabo.de</a>',
-        'en' => '<br><br> OXID Modul development by:<br><a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br><a href="http://www.suabo.de">www.suabo.de</a>',
+        'en' => '
+<strong>Benefits for shopowners are:</strong><br>
+<ul>
+<li>High Brand Values of charity partners establishes trust</li>
+<li>Highly positive awareness effects for social engagement</li>
+<li>Positive emotional Marketing and Brand exposure</li>
+<li>Referral marketing and new customer acquisition via social media</li>
+<li>Increase in customer lifetime value due to referrals & returning customers</li>
+<li>Sustainable and efficient marketing tool with no follow up costs</li>
+</ul><br><br>
+<a href="https://elefunds.de/produkt/anmeldung/" target="_blank">Register for elefunds API here</a>
+<br><br>
+<strong>Notice for own themes:</strong><br>
+The default Settings for are for the OXID theme azure.
+If you use an other theme you might need to change these values. 
+More information about the <a href="https://github.com/elefunds/elefunds-SDK/blob/master/Documentation/Shops/JavaScriptFrontend.md">setting parameter</a>.
+<br><br> OXID Modul development by:<br><a href="mailto:grolms@suabo.de">Marcel Grolms - suabo</a><br><a href="http://www.suabo.de">www.suabo.de</a>',
     ),
     'thumbnail'    => 'out/src/img/elefunds_Logo.png',
     'version'      => '1.0.1',
