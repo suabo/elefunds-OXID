@@ -32,10 +32,11 @@ class lfndsdonation_main extends oxAdminDetails {
   protected $_sThisTemplate = 'lfndsdonation_main.tpl';
   
   public function render() {    
+    $oConfig = $this->getConfig();
     $oViewConf = oxNew('oxviewconfig');
     $sModulePath = $oViewConf->getModulePath('suabolfnds');
     require_once($sModulePath.'core/Lfnds/Model/Donation.php');
-    $sOxId = oxConfig::getParameter('oxid');
+    $sOxId = $oConfig->getRequestParameter('oxid');
     $oLfndsDonation = oxNew('suabolfnds');
     if($oLfndsDonation->load($sOxId)) {
       $this->_aViewData['edit'] = $oLfndsDonation;
@@ -47,13 +48,13 @@ class lfndsdonation_main extends oxAdminDetails {
   }
   
   public function setPaid() {
-    $sOxID = oxConfig::getParameter('oxid');
+    $sOxID = $this->getConfig()->getRequestParameter('oxid');
     oxDb::getDb()->execute("UPDATE suabolfnds SET lfndsstate='scheduled_for_completion' WHERE oxid='$sOxID'");
     lfndsfacade::getInstance()->observeDonationState();
   }
   
   public function storno() {
-    $sOxID = oxConfig::getParameter('oxid');
+    $sOxID = $this->getConfig()->getRequestParameter('oxid');
     oxDb::getDb()->execute("UPDATE suabolfnds SET lfndsstate='scheduled_for_cancellation' WHERE oxid='$sOxID'");
     lfndsfacade::getInstance()->observeDonationState();
   }  

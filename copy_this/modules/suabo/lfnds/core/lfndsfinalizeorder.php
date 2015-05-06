@@ -42,7 +42,7 @@ class lfndsfinalizeorder extends lfndsfinalizeorder_parent {
   protected function _addLfndsArticle($oBasket) {
     $oLfndsHelper = lfndshelper::getInstance()->getHelper();
     if($oLfndsHelper->isActiveAndValid()) {
-      $oBasketItem = $oBasket->addToBasket('lfndsdonation', $oLfndsHelper->getRoundUp());    
+      $oBasketItem = $oBasket->addToBasket('lfndsdonation', "1");
       $oBasket->calculateBasket();
     }    
   }

@@ -42,20 +42,21 @@ class lfndsfacade {
   
   public function getFacade($sMode = '', $sForeignId = '') {
     if($this->_oLfndsApi !== null) return $this->_oLfndsApi;
-    $myconfig = oxConfig::getInstance();
+    $oConfig = oxRegistry::getConfig();
+    $oSession = oxRegistry::getSession();
     $oViewConf = oxNew('oxviewconfig');
     $sModulePath = $oViewConf->getModulePath('suabolfnds');    
-    $oUser = oxSession::getInstance()->getUser();
+    $oUser = $oSession->getUser();
     (!$oUser || $oUser->getLanguage() == 0 || $oUser->getLanguage() == -1) ? $sCountryCode = 'de' : $sCountryCode = 'en';
-    $sClientId = $myconfig->getConfigParam("sLfndsClientID");
-    $sApiKey = $myconfig->getConfigParam("sLfndsApiKey");
-    $sTheme = $myconfig->getConfigParam("sLfndsTheme");
-    $sThemeColor = $myconfig->getConfigParam("sLfndsThemeColor");
-    $sRowContainer = $myconfig->getConfigParam("sLfndsRowContainer");
-    $sRowLabel = $myconfig->getConfigParam("sLfndsRowLabel");
-    $sRowValue = $myconfig->getConfigParam("sLfndsRowValue");
-    $sFooterSelector = $myconfig->getConfigParam("sLfndsFooterSelector");
-    $sTotalSelector = $myconfig->getConfigParam("sLfndsTotalSelector");
+    $sClientId = $oConfig->getConfigParam("sLfndsClientID");
+    $sApiKey = $oConfig->getConfigParam("sLfndsApiKey");
+    $sTheme = $oConfig->getConfigParam("sLfndsTheme");
+    $sThemeColor = $oConfig->getConfigParam("sLfndsThemeColor");
+    $sRowContainer = $oConfig->getConfigParam("sLfndsRowContainer");
+    $sRowLabel = $oConfig->getConfigParam("sLfndsRowLabel");
+    $sRowValue = $oConfig->getConfigParam("sLfndsRowValue");
+    $sFooterSelector = $oConfig->getConfigParam("sLfndsFooterSelector");
+    $sTotalSelector = $oConfig->getConfigParam("sLfndsTotalSelector");
     require_once($sModulePath.'core/Lfnds/Template/Shop/CheckoutConfiguration.php');
     require_once($sModulePath.'core/Lfnds/Template/Shop/CheckoutSuccessConfiguration.php');    
     require_once($sModulePath.'core/Lfnds/Facade.php');
@@ -72,7 +73,7 @@ class lfndsfacade {
             ->assign('foreignId', $sForeignId);
       }                
     } else {
-      $oBasket = oxSession::getInstance()->getBasket();
+      $oBasket = $oSession->getBasket();
       $oCheckoutConfig = new CheckoutConfiguration();
       $oCheckoutConfig->setClientId($sClientId)
           ->setCountrycode($sCountryCode);
@@ -162,7 +163,7 @@ class lfndsfacade {
       $sOxId = $oLfndDonation->getId();        
       switch ($oLfndDonation->suabolfnds__lfndsstate->value) {            
         case 'pending':
-          $sObserveTrigger = oxConfig::getInstance()->getConfigParam('sLfndsObserveTrigger');
+          $sObserveTrigger = oxRegistry::getConfig()->getConfigParam('sLfndsObserveTrigger');
           $sOrderId = $oLfndDonation->suabolfnds__oxorderid->value;
           $sOTV = oxDb::getDb()->getOne("SELECT $sObserveTrigger FROM oxorder WHERE oxid='$sOrderId';");
           if(isset($sOTV) && !empty($sOTV) && $sOTV != '0000-00-00 00:00:00') { $completedDonations[$sOxId] = $oDonation; }
@@ -230,7 +231,7 @@ class lfndsfacade {
       $oLfndDonation->assign($aParam);
       $oLfndDonation->save();
     }
-    if(oxConfig::getParameter('cron')) { echo "Finished sync of Elefunds donation state.\n";exit(); }
+    if(oxRegistry::getConfig()->getRequestParameter('cron')) { echo "Finished sync of Elefunds donation state.\n";exit(); }
   }    
 }
 ?>
