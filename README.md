@@ -2,7 +2,7 @@
 
 The elefunds OXID module.  
 
-## Installationsanleitung für elefunds OXID Modul V.4.7.0 - 4.8.x
+## Installationsanleitung für elefunds OXID Modul V.4.7.0 - 4.9.x
 
 1. Kopieren Sie alle Dateien aus copy_this in ihr Shop root Verzeichnis.
 2. Aktivieren Sie das Modul im Backend unter Erweiterungen > Module > Elefunds.
@@ -29,3 +29,9 @@ einen [Cronjob einrichten](cron/CRON.md).
 bei ältern Shopversionen ist es notwendig eine neuere Version von JQuery zu laden.
 Aktivieren Sie diese Einstellung im Modul, sollte das Widget nicht angezeigt werden.
 Das Javascript Widget benötigt mindestens jQuery V1.7
+
+## Change Log
+V.1.0.2
+- Kompatibilität mit OXID V.4.9.x
+- Stornierung der Spende nun automatisch mit Spendenartikel
+- Verbesserte Installationsroutine
